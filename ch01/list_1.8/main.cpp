@@ -2,13 +2,13 @@
 
 void show_message(int value)
 {
-    if (10 <= value && value < 20)
+    if (!(10 <= value && value < 20))
     {
-        std::cout << "10以上20未満です" << std::endl;
+        std::cout << "10以上20未満ではありません""10以上20未満です" << std::endl;
     }
     else
     {
-        std::cout << "10以上20未満ではありません" << std::endl;
+        std::cout << "10以上20未満です" << std::endl;
     }
 }
 
