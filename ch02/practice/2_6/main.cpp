@@ -1,6 +1,11 @@
 #include <iostream>
+#include <string>
 
 int main(){
-    std::cout << "input double number" << std::endl;
-    cin >> d
+    std::string s;
+    do{
+        std::cout << "input string" << std::endl;
+        std::getline(std::cin, s);
+        std::cout << "input string is [" << s << "]" << std::endl;
+    } while(s != "");
 }
