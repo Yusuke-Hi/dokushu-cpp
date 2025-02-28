@@ -1,24 +1,26 @@
-#include <string>
-class Base{
+#include <iostream>
+class A{
   public:
-    virtual std::string name() const;
-    virtual std::string most_name() const = 0;
+    virtual void show();
 };
-std::string Base::name() const{return "Base";}
 
-class Derived:public Base{
+void A::show(){
+  std::cout << "This is A::show()" << std::endl;
+}
+
+class B: public A{
   public:
-    virtual std::string name() const override;
+    using A::show;
+    void show(int value);
 };
-std::string Derived::name() const{return "Derived";}
 
-class MoreDerived:public Derived{
-  public:
-    std::string name() const override;
-    std::string most_name() const override;
-};
-std::string MoreDerived::name() const{return "MoreDerived";}
+void B::show(int value){
+  std::cout << "This is B::show(): " << value << std::endl;
+}
 
-int main(){
-  Derived de;
+int main (){
+
+  B b;
+  b.show();
+  b.show(10);
 }
