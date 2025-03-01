@@ -1,26 +1,32 @@
 #include <iostream>
 class A{
   public:
-    virtual void show();
+    
+    static int v;
+    void change_static_member(int new_value) const;
+
+  private:
+  
+    int value = 10;
 };
 
-void A::show(){
-  std::cout << "This is A::show()" << std::endl;
-}
+int A::v = 100;
 
-class B: public A{
-  public:
-    using A::show;
-    void show(int value);
-};
-
-void B::show(int value){
-  std::cout << "This is B::show(): " << value << std::endl;
+void A::change_static_member(int new_value) const{
+  A::v = new_value;
 }
 
 int main (){
+  A a;
 
-  B b;
-  b.show();
-  b.show(10);
+  a.change_static_member(500);
+
+  std::cout << a.v << std::endl;
+
 }
+
+// #include <iostream>
+
+// int main(){
+//   std::cout << "ok" << std::endl;
+// }

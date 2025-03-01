@@ -3,20 +3,14 @@ class A
     int m_v;
 
 public:
-    explicit A(int); // explicitキーワードを追加することで
+    explicit A(int v): m_v(v){} // explicitキーワードを追加することで
                      // 暗黙のコンストラクター呼び出しを禁止できる
 
-    int v() const;
+    int v() const{
+        return m_v;
+    }
 };
 
-A::A(int v) : m_v(v) // 定義にはexplicitを書かない
-{
-}
-
-int A::v() const
-{
-    return m_v;
-}
 
 int main()
 {
