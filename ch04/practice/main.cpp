@@ -1,11 +1,8 @@
 #include <iostream>
+#include "func.hpp"
 
-int sum(int ,int);
+extern int value;
 
 int main(){
-  sum(10, 5);
-}
-
-int sum(int lhs, int rhs){
-  return lhs + rhs;
+  std::cout << value << std::endl;
 }
