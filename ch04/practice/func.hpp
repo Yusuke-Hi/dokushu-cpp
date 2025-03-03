@@ -1,3 +1,6 @@
 
 
-int value =10;
+class A{
+  public:
+    inline void func_A();
+};

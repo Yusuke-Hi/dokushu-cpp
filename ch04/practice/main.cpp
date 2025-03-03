@@ -1,8 +1,20 @@
 #include <iostream>
 #include "func.hpp"
 
-extern int value;
+namespace module{
+  void show(){
+    std::cout << "module::show()" << std::endl;
+  }
+}
+
+void show(){
+  std::cout << "global show()" << std::endl;
+}
 
 int main(){
-  std::cout << value << std::endl;
+  show();
+  module::show();
+  using module::show;
+  show();
+  
 }
