@@ -1,6 +1,11 @@
-
+#ifndef FUNC_HPP
+#define FUNC_HPP
 
 class A{
   public:
-    inline void func_A();
+    int next(int value){
+      return value + 1;
+    }
 };
+
+#endif
