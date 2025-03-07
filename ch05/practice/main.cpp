@@ -1,27 +1,23 @@
 #include <iostream>
+#include <string>
+#include <vector>
+class product{
+  int id = 0;
+  std::string name = "not available";
+  int price = -1;
 
-void reverse(int * array, int size){
-  int array_tmp[size];
-  for (int i = 0; i < size; i++){
-    array_tmp[i] = array[i];
-  }
-
-  for (int i = 0; i < size; i++){
-    array[i] = array_tmp[size - 1 - i];
-  }
-}
+  public:
+    product() {}
+    explicit product(int id, std::string name, int price):
+    id(id), name(name), price(price){}
+};
 
 int main(){
-  int array[] = {0, 1, 2, 3, 4};
-  reverse(array, 5);
 
-  for (int i = 0; i < 5; i++){
-    std::cout << array[i] << std::endl;
-  }
-  std::cout << std::endl;
+  std::vector<product> p;
+  p.push_back(product{1, "smart phone", 60000});
+  p.push_back(product{2, "tablet", 35000});
+  p.push_back(product());
+  p.push_back(product());
 
-  int (*ptr)[5] = &array;
-  for (int * ptr = array; ptr != (array + 5); ptr++){
-    std::cout << *ptr << std::endl;
-  }
 }
