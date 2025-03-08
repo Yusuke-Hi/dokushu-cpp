@@ -1,23 +1,33 @@
 #include <iostream>
 #include <string>
 #include <vector>
-class product{
-  int id = 0;
-  std::string name = "not available";
-  int price = -1;
-
+class A
+{
+  int a = 0;
   public:
-    product() {}
-    explicit product(int id, std::string name, int price):
-    id(id), name(name), price(price){}
+    A(){}
+    A(int a) : a(a){}
+    ~A(){
+      std::cout << "A object was deleted." << std::endl;
+    }
+
+  void show();
 };
 
-int main(){
+void A::show(){
+  std::cout << a << std::endl;
+}
 
-  std::vector<product> p;
-  p.push_back(product{1, "smart phone", 60000});
-  p.push_back(product{2, "tablet", 35000});
-  p.push_back(product());
-  p.push_back(product());
+int main()
+{
+  A* ptr = new A[3] = {
+    A{5},
+    A{8}
 
+  };
+
+  for ()
+
+
+  delete[] ptr;
 }
