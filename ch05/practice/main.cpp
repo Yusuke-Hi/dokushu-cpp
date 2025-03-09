@@ -1,33 +1,32 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <initializer_list>
 class A
 {
-  int a = 0;
+  int memberA = 10;
   public:
-    A(){}
-    A(int a) : a(a){}
-    ~A(){
-      std::cout << "A object was deleted." << std::endl;
+    int& get_memberA(){
+      return memberA;
     }
 
-  void show();
+    const int& get_memberA() const{
+      return memberA;
+    }
 };
-
-void A::show(){
-  std::cout << a << std::endl;
-}
 
 int main()
 {
-  A* ptr = new A[3] = {
-    A{5},
-    A{8}
+  A a;
 
-  };
+  int& memberA = a.get_memberA();
 
-  for ()
+  const int& memberA_ = a.get_memberA();
 
+  std::cout << memberA_ << std::endl;
 
-  delete[] ptr;
+  memberA = 50;
+  std::cout << memberA << std::endl;
+  std::cout << memberA_ << std::endl;
+
 }
