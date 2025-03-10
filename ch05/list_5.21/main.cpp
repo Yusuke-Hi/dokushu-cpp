@@ -7,4 +7,6 @@ int main()
 
     std::cout << "&i: " << &i << std::endl;
     std::cout << "&j: " << &j << std::endl;
+
+    // std::cout << i << j << std::endl;
 }
