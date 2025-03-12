@@ -4,29 +4,37 @@
 #include <initializer_list>
 class A
 {
-  int memberA = 10;
+    int *memberA;
   public:
-    int& get_memberA(){
-      return memberA;
-    }
+    A();
+    A(const A& other); 
+    A(A&& other);
+    ~A();
 
-    const int& get_memberA() const{
-      return memberA;
+    void set(int memberA){
+      this->memberA = memberA;
     }
 };
+A::A() : memberA{new int[100]} {
+  std::cout << "default constructor" << std::endl;
+}
+A::A(const A& other) : memberA(other.memberA){
+  std::cout << "copy constructor" << std::endl;
+}
+A::A(A&& other) : memberA(other.memberA){
+  other.memberA = nullptr;
+}
+
+A::~A(){
+  delete[] memberA;
+}
 
 int main()
 {
   A a;
+  a.set(42);
 
-  int& memberA = a.get_memberA();
-
-  const int& memberA_ = a.get_memberA();
-
-  std::cout << memberA_ << std::endl;
-
-  memberA = 50;
-  std::cout << memberA << std::endl;
-  std::cout << memberA_ << std::endl;
+  A b{a};
+  A c{std::move(a)};
 
 }
