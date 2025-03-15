@@ -3,15 +3,16 @@
 #include <vector>
 #include <initializer_list>
 
-int myadd(int a, int b){
-  return a + b;
+void clear(int& num){
+  std::cout << "reference: " << num << std::endl;
 }
 
-int main()
-{
-  int (*func)(int, int) = &myadd;
-  std::cout << func(90, 18) << std::endl;
+void right(int&& num){
+  std::cout << "right: " << num << std::endl;
+}
 
-  int (&func_)(int, int) = myadd;
-  std::cout << func(49, 22) << std::endl;
+int main(){
+  int a = 100;
+  clear(a);
+  right(std::move(a));
 }
