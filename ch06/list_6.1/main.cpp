@@ -47,7 +47,7 @@ int main()
     Integer y = 3;
     Integer z = 7;
 
-    auto v = x.sub(y.div(y)).add(z.mul(x));
+    Integer v = x.sub(y.div(y)).add(z.mul(x));
 
     v.show();
 }
