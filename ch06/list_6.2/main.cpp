@@ -7,7 +7,9 @@ class Integer
 public:
     Integer(int value) : value{ value } { }
 
-    Integer operator+(const Integer& rhs) const; // 加算
+    friend Integer operator+(int, const Integer& rhs); // 加算
+    friend Integer operator+(const Integer& lhs, int); // 加算
+    friend Integer operator+(const Integer& lhs, const Integer& rhs);
     Integer operator-(const Integer& rhs) const; // 減算
     Integer operator*(const Integer& rhs) const; // 乗算
     Integer operator/(const Integer& rhs) const; // 除算
@@ -15,9 +17,19 @@ public:
     void show() const;
 };
 
-Integer Integer::operator+(const Integer& rhs) const
+Integer operator+(int value, const Integer& rhs)
 {
     return Integer{ value + rhs.value };
+}
+
+Integer operator+(const Integer& lhs, int value)
+{
+    return Integer{ lhs.value + value};
+}
+
+Integer operator+(const Integer& lhs, const Integer& rhs)
+{
+    return Integer{ lhs.value + rhs.value};
 }
 
 Integer Integer::operator-(const Integer& rhs) const
