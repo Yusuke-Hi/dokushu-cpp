@@ -18,5 +18,7 @@ public:
 int main()
 {
     B b;
-    b.foo(); // エラー。Bはfooというメンバー関数を持たない
+    // b.foo(); // エラー。Bはfooというメンバー関数を持たない
+    A a_ = b;
+    a_.foo();
 }
