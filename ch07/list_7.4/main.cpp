@@ -33,8 +33,8 @@ int main()
     derived.method_Derived();
 
     // 基底クラスへの参照は派生クラスからも作れる
-    Base& base = derived;
+    Base *base = &derived;
 
     // OK。Baseのメンバー関数へはBaseの参照からたどることができる
-    base.method_Base();
+    base->method_Base();
 }

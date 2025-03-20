@@ -23,6 +23,7 @@ void Derived::method()
     std::cout << "Derived::method()" << std::endl;
     Base* base = this; // 基底クラスへのポインターを取得
     base->method(); // 基底クラスのメンバーを呼んでいる……つもり
+    // base->Base::method();
 }
 
 int main()
