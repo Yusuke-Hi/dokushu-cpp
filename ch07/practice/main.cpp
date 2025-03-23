@@ -3,37 +3,38 @@
 
 template<typename T>
 void print(T x){
-  std::cout << x << std::endl;
+  std::cout << x;
 }
 
 class Base{
   public:
-    Base(){
-      print("Base constructor.");
+    Base(std::string s){
+      print("Base constructor: ");
+      print(s);
+      print("\n");
     }
-    Base(int n){
-      print("Base constructor n -> ");
-      print(n);
+    virtual ~Base(){
+      print("Base destructor");
     }
-    ~Base(){
-      print("Base destructor.");
+
+    void virtual method(){
+      print("mehtod: Base\n");
     }
 };
 
-class Derived: public Base{
+class DerivedA: virtual public Base{
   public:
-    Derived(){
-      print("Derived constructor");
-    }
-    Derived(int n): Base{n}{
-      print("Derived constructor n -> Base");
-    }
-    ~Derived(){
-      print("Derived destructor");
-    }
+  DerivedA(): Base{"DerivedA"} {}
+  ~DerivedA(){
+    print("Derived destructor");
+  }
+  void method() override{
+    print("mathod: DerivedA\n");
+  }
 };
 
 int main(){
-  Derived d;
-  Derived d2{42};
+  DerivedA da;
+
+  da.method();
 }
