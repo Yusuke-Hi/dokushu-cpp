@@ -3,6 +3,10 @@
 
 int main()
 {
+    std::ofstream out{ "in_file.txt" };
+    out.write("this is a sample.", 64);
+    out.close();
+
     std::ifstream in{ "in_file.txt" };
 
     auto state = in.rdstate();

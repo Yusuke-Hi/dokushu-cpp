@@ -3,10 +3,16 @@
 
 int main()
 {
+    std::ofstream out{ "hello_error.txt" };
+    out << "this is a sample." << std::endl;
+    out.close();
+
     std::ifstream in{ "hello_error.txt" };
 
+    int count = 1;
     while (in.good())
     {
+        std::cout << count++ << std::endl;
         in.get();
         auto state = in.rdstate();
         if (state & std::ios::eofbit)

@@ -1,12 +1,10 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 int main(){
-  std::ifstream in{__FILE__};
-
-  std::string line;
-  while(std::getline(in, line)){
-    std::cout << line << std::endl;
-  }
+  int num = 12345;
+  std::cout << std::hex << std::setw(16) << std::left << std::setfill('=') 
+    << 0xdeadbeaf << std::endl;
 }
