@@ -1,8 +1,12 @@
+#include <string>
 #include <iostream>
-#include <iomanip>
+#include <fstream>
 
 int main(){
-  int num = 1234;
-  std::cout << std::right << std::oct 
-  << std::setw(8) << std::setfill('0') << num << std::endl;
+  std::ifstream in{__FILE__};
+
+  std::string line;
+  while(std::getline(in, line)){
+    std::cout << line << std::endl;
+  }
 }
