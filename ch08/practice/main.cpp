@@ -1,15 +1,8 @@
 #include <iostream>
+#include <iomanip>
 
 int main(){
-  char buffer[256];
-
-  while(true){
-    std::cout << "input text." << std::endl;
-    std::cin.getline(buffer, 256);
-    if (buffer[0] == '\0'){
-      break;
-    }
-    std::cout << buffer << std::endl;
-  }
-  
+  int num = 1234;
+  std::cout << std::right << std::oct 
+  << std::setw(8) << std::setfill('0') << num << std::endl;
 }
