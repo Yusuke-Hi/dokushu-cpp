@@ -4,7 +4,10 @@
 #include <iomanip>
 
 int main(){
-  int num = 12345;
-  std::cout << std::hex << std::setw(16) << std::left << std::setfill('=') 
-    << 0xdeadbeaf << std::endl;
+  std::string file = "sample_binary.bin";
+
+  std::ifstream in { file, std::ios::binary};
+  char buffer[100];
+  in.read(buffer, sizeof(buffer));
+  std::cout << buffer << std::endl;
 }
