@@ -3,12 +3,17 @@
 
 
 template <typename T>
-T func(T x){
-  return x;
+class A{
+  public:
+    T method(T value);
+};
+
+template<typename T>
+T A<T>::method(T value){
+  return value;
 }
 
 int main(){
-
-  std::cout << func<int>(5) << std::endl;
-  std::cout << func<std::string>("dadsf") << std::endl;
+  A<int> a;
+  std::cout << a.method(15) << std::endl;
 }
