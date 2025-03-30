@@ -12,5 +12,5 @@ int main()
     // 受け取った引数をもとに計算して適切な型で返す
     // （この場合、式中における暗黙の型変換規則によりdoubleで返される）
     std::cout << fused_multiply_add<double, int, float>(1.23456, 2, 1.23456f)
-        << std::endl;
+              << std::endl;
 }
