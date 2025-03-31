@@ -2,26 +2,14 @@
 #include <string>
 
 template <typename T>
-class A
+void func(T &&value)
 {
-public:
-  void func()
-  {
-    std::cout << "A<T>::func()" << std::endl;
-  }
-};
-
-template <typename T>
-void call(A<T> a)
-{
-  a.func();
+  std::cout << value << std::endl;
 }
 
 int main()
 {
-  A<int> ai;
-  call(ai);
-
-  A<std::string> as;
-  call(as);
+  const int i = 19;
+  func(i);
+  func(623);
 }
