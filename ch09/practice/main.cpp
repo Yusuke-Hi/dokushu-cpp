@@ -1,15 +1,24 @@
 #include <iostream>
 #include <string>
 
-template <typename T>
-void func(T &&value)
+void foo(int x, int y)
 {
-  std::cout << value << std::endl;
+  std::cout << "2 args" << std::endl;
+}
+
+void foo(int x, int y, int z)
+{
+  std::cout << "3 args" << std::endl;
+}
+
+template <typename... T>
+void func(T... args)
+{
+  foo(args...);
 }
 
 int main()
 {
-  const int i = 19;
-  func(i);
-  func(623);
+  func(2, 3);
+  func(1, 2, 3);
 }
