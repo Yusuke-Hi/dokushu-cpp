@@ -1,24 +1,26 @@
 #include <iostream>
 #include <string>
 
-void foo(int x, int y)
+template <typename T>
+class A
 {
-  std::cout << "2 args" << std::endl;
-}
+  T value;
 
-void foo(int x, int y, int z)
-{
-  std::cout << "3 args" << std::endl;
-}
+public:
+  A(T value) : value{value} {}
+};
 
-template <typename... T>
-void func(T... args)
+template <int>
+class A
 {
-  foo(args...);
-}
+  int value;
+
+public:
+  A(int i) : value{i} {}
+};
 
 int main()
 {
-  func(2, 3);
-  func(1, 2, 3);
+  A<std::string> as{"als"};
+  A<int> ai{12};
 }
