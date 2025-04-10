@@ -1,17 +1,23 @@
 #include <iostream>
 #include <string>
 
-class my_except : std::exception
+class A
 {
-  const char *message;
+  int i = -1;
 
 public:
-  my_except(const char *message) : message(message)
+  A(int num) : i(num)
   {
+    std::cout << "constructor: " << i << std::endl;
+    if (i < 0)
+    {
+      throw 0;
+    }
   }
-  const char *what() const noexcept override
+
+  ~A()
   {
-    return message;
+    std::cout << "destructor: " << i << std::endl;
   }
 };
 
@@ -19,10 +25,10 @@ int main()
 {
   try
   {
-    throw my_except{"this is my_except"};
+    A *array = new A[]{A{0}, A{1}, A{2}, A{-1}, A{10}, A{5}};
   }
-  catch (my_except &e)
+  catch (int e)
   {
-    std::cout << e.what() << std::endl;
+    std::cout << e << std::endl;
   }
 }

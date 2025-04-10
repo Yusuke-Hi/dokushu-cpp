@@ -4,7 +4,7 @@
 class Base
 {
 public:
-    virtual ~Base() { } // 仮想デストラクターを定義してポリモーフィックにする
+    virtual ~Base() {} // 仮想デストラクターを定義してポリモーフィックにする
 };
 
 class DerivedA : public Base
@@ -16,9 +16,9 @@ class DerivedB : public Base
 };
 
 // 渡されたオブジェクトの実際の型によってメッセージを変える
-void determine_class(const Base& obj)
+void determine_class(const Base &obj)
 {
-    const std::type_info& obj_type = typeid(obj);
+    const std::type_info &obj_type = typeid(obj);
 
     if (obj_type == typeid(DerivedA))
     {
@@ -33,7 +33,7 @@ void determine_class(const Base& obj)
     else
     {
         std::cout << "obj は DerivedAでもDerivedBでもないインスタンスです"
-            << std::endl;
+                  << std::endl;
     }
 }
 
