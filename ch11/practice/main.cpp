@@ -19,8 +19,8 @@ int main()
 {
   Derived da;
   Base *pbase = &da;
-  auto *pmd = dynamic_cast<MoreDerived *>(pbase);
 
+  auto *pmd = dynamic_cast<MoreDerived *>(pbase);
   if (pmd)
   {
     std::cout << "ok" << std::endl;
@@ -31,4 +31,12 @@ int main()
   }
 
   auto *pd = dynamic_cast<Derived *>(pbase);
+  if (pd)
+  {
+    std::cout << "ok" << std::endl;
+  }
+  else
+  {
+    std::cout << "faild" << std::endl;
+  }
 }

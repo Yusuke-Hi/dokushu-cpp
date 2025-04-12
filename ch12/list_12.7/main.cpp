@@ -3,9 +3,14 @@
 
 int main()
 {
-    std::vector iv = { 1, 2, 3, 4, 5 };
+    std::vector iv = {1, 2, 3, 4, 5};
 
     iv.resize(4); // 切り詰める方向にリサイズ
+
+    for (int i : iv)
+    {
+        std::cout << i << std::endl;
+    }
 
     std::cout << "size() = " << iv.size() << std::endl;
 
