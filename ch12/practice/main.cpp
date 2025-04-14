@@ -3,12 +3,15 @@
 #include <vector>
 #include <list>
 #include <tuple>
+#include <set>
 
 int main()
 {
-  std::tuple<int, std::string, int> t{1, "hokj", 42};
+  std::set<int> s{1, 1, 2, 2, 3, 3, 4, 4, 4, 5};
 
-  std::get<2>(t) = 54;
-
-  std::cout << std::get<2>(t) << std::endl;
+  for (auto it = s.begin(); it != s.end(); it++)
+  {
+    std::cout << *it << " ";
+  }
+  std::cout << std::endl;
 }
