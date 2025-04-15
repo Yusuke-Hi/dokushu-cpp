@@ -6,7 +6,7 @@ int main()
     std::string str = "abc";
 
     // C文字列を取得
-    const char* c_str = str.c_str();
+    const char *c_str = str.c_str();
 
     int pos = 0;
     while (true)

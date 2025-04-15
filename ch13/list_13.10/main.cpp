@@ -14,4 +14,11 @@ int main()
 
     str = "漢字";
     std::cout << str.length() << std::endl;
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        // std::cout << i << " ";
+        std::cout << str.at(i); // << std::endl;
+    }
+    std::cout << std::endl;
 }
