@@ -26,12 +26,12 @@ int main()
 
     // 科学技術表記の浮動小数点数として文字列に変換
     result = std::to_chars(buffer, buffer + 15, 3.14,
-        std::chars_format::scientific);
+                           std::chars_format::scientific);
     *result.ptr = '\0'; // ヌル文字で終端
     std::cout << buffer << std::endl;
 
     double fval = 0;
-        // 自動でフォーマットを検出して文字列から変換
+    // 自動でフォーマットを検出して文字列から変換
     std::from_chars(buffer, buffer + 16, fval);
-    std::cout << val << std::endl;
+    std::cout << fval << std::endl;
 }
